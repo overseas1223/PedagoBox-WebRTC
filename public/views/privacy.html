@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en" class="no-js">
+    <head>
+        <!-- Title and Icon -->
+
+        <title>Pedagobox | Practical work / tutorials</title>
+        <link rel="shortcut icon" href="../images/logo" />
+        <link rel="apple-touch-icon" href="../images/logo" />
+
+        <!-- Meta Information -->
+
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="PedagoBox powered by WebRTC and mediasoup, Real-time Simple Secure Fast video calls, messaging and screen sharing capabilities in the browser."
+        />
+        <meta
+            name="keywords"
+            content="webrtc, PedagoBox, mediasoup, mediasoup-client, self hosted, voip, sip, real-time communications, chat, messaging, meet, webrtc stun, webrtc turn, webrtc p2p, webrtc sfu, video meeting, video chat, video conference, multi video chat, multi video conference, peer to peer, p2p, sfu, rtc, alternative to, zoom, microsoft teams, google meet, jitsi, meeting"
+        />
+
+        <meta property="og:type" content="app-webrtc" />
+        <meta property="og:site_name" content="Pedagobox" />
+        <meta property="og:title" content="Click the link to make a call." />
+        <meta
+            property="og:description"
+            content="Pedagobox calling provides real-time video calls, messaging and screen sharing."
+        />
+
+        <!-- StyleSheet -->
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+        <link rel="stylesheet" href="../css/landing.css" />
+
+        <!-- Js scripts -->
+
+        <!-- <script async src="../js/Umami.js"></script> -->
+        <script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js"></script>
+        <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+        <script src="https://rawgit.com/leizongmin/js-xss/master/dist/xss.js"></script>
+    </head>
+    <body class="is-boxed has-animations">
+        <div class="body-wrap">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-header-inner">
+                        <div class="brand header-brand">
+                            <div class="m-0">
+                                <a href="/">
+                                    <img
+                                        class="header-logo-image"
+                                        src="../images/logo"
+                                        alt="pedagobox-webrtc-logo"
+                                        width="70"
+                                    />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main>
+                <section class="hero">
+                    <div class="container">
+                        <div class="hero-inner">
+                            <div class="hero-copy">
+                                <h1 class="hero-title mt-0">Privacy Policy</h1>
+                                <p class="hero-paragraph" id="message"></p>
+                                <p class="hero-paragraph">
+                                    <strong>Pedagobox SFU</strong> has an integrated
+                                    <a href="https://mediasoup.org/" target="_blank">mediasoup server</a>. Routing is a
+                                    multiparty topology, where each participant sends its media to this server and
+                                    receives all other's media from it. Thanks to the SFU architecture, it allows having
+                                    many users connected in the same room. The media streams are encrypted using Secure
+                                    Real-time Transport Protocol (SRTP).<br /><br />
+                                    If you record a meeting, the recording of the meeting is temporarily stored on
+                                    <strong>Your browser</strong>
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Blob" target="_blank"
+                                        >Blob</a
+                                    >, then will be downloaded on Your PC/Mobile Device.<br /><br />
+                                    We use Umami to track aggregated usage statistics in order to improve our service.
+                                    The maker of
+                                    <strong>Pedagobox SFU</strong> has no intention of using personally or selling any
+                                    of the above-mentioned data.
+                                </p>
+                                <div>
+                                    <a class="button button-primary button-wide-mobile pulse" href="/newroom">AGREE</a>
+                                </div>
+                            </div>
+                            <div class="hero-figure anime-element">
+                                <svg class="placeholder" width="528" height="396" viewBox="0 0 528 396">
+                                    <rect width="528" height="396" style="fill: transparent" />
+                                </svg>
+                                <div class="hero-figure-box hero-figure-box-01" data-rotation="45deg"></div>
+                                <div class="hero-figure-box hero-figure-box-02" data-rotation="-45deg"></div>
+                                <div class="hero-figure-box hero-figure-box-03" data-rotation="0deg"></div>
+                                <div class="hero-figure-box hero-figure-box-04" data-rotation="-135deg"></div>
+                                <div class="hero-figure-box hero-figure-box-05"></div>
+                                <div class="hero-figure-box hero-figure-box-06"></div>
+                                <div class="hero-figure-box hero-figure-box-07"></div>
+                                <div class="hero-figure-box hero-figure-box-08" data-rotation="-22deg"></div>
+                                <div class="hero-figure-box hero-figure-box-09" data-rotation="-52deg"></div>
+                                <div class="hero-figure-box hero-figure-box-10" data-rotation="-50deg"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <script defer src="../js/landing.js"></script>
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
+    </body>
+</html>

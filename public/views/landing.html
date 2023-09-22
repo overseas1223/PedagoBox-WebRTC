@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en" class="no-js">
+    <head>
+        <!-- Title and Icon -->
+
+        <title>Pedagobox | Practical work / tutorials</title>
+        <link rel="shortcut icon" href="../images/logo" />
+        <link rel="apple-touch-icon" href="../images/logo" />
+
+        <!-- Meta Information -->
+
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="PedagoBox powered by WebRTC and mediasoup, Real-time Simple Secure Fast video calls, messaging and screen sharing capabilities in the browser."
+        />
+        <meta
+            name="keywords"
+            content="webrtc, PedagoBox, mediasoup, mediasoup-client, self hosted, voip, sip, real-time communications, chat, messaging, meet, webrtc stun, webrtc turn, webrtc p2p, webrtc sfu, video meeting, video chat, video conference, multi video chat, multi video conference, peer to peer, p2p, sfu, rtc, alternative to, zoom, microsoft teams, google meet, jitsi, meeting"
+        />
+
+        <meta property="og:type" content="app-webrtc" />
+        <meta property="og:site_name" content="Pedagobox" />
+        <meta property="og:title" content="Click the link to make a call." />
+        <meta
+            property="og:description"
+            content="Pedagobox calling provides real-time video calls, messaging and screen sharing."
+        />
+
+        <!-- StyleSheet -->
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+        <link rel="stylesheet" href="../css/landing.css" />
+
+        <!-- Js scripts -->
+
+        <!-- <script async src="../js/Umami.js"></script> -->
+        <script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js"></script>
+        <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+        <script src="https://rawgit.com/leizongmin/js-xss/master/dist/xss.js"></script>
+    </head>
+    <body onload="authconfig()">
+        <section>
+            <div class="container mt-auto">
+                <div class="hero-copy">
+                    <div id="loginForm" class="center" style="margin-left: 10%; margin-left: auto">
+                        <div style="display: block; width: 100%"><img src="../images/pedagobox-logo.gif" alt="" /></div>
+                        <br />
+                        <div id="auth-required" class="text-center">
+                            <h2>Authentication required</h2>
+                            <a href="/">Sign In</a>
+                        </div>
+                        <div class="mb-24" style="display: none">
+                            <input
+                                id="roomName"
+                                class="form-input"
+                                type="text"
+                                maxlength="36"
+                                value=""
+                                style="border-radius: 6px"
+                            />
+                        </div>
+                        <hr />
+                        <div class="mb-24" style="display: none">
+                            <button
+                                id="genRoomButton"
+                                style="border-radius: 6px; width: 100%"
+                                type="button"
+                                class="button button-primary br-6 mr-8 mb-8"
+                                onclick="genRoom()"
+                            >
+                                <i class="fas fa-arrows-rotate"></i>
+                            </button>
+                        </div>
+                        <div class="mb-24" style="display: none">
+                            <button
+                                id="joinRoomButton"
+                                style="width: 100%"
+                                class="button button-primary pulse"
+                                onclick="joinRoom()"
+                            >
+                                Create Meeting Room
+                            </button>
+                        </div>
+                    </div>
+                    <script>
+                        document.getElementById('roomName').onkeyup = (e) => {
+                            if (e.keyCode === 13) {
+                                e.preventDefault();
+                                joinRoom();
+                            }
+                        };
+                        function genRoom() {
+                            document.getElementById('roomName').value = getUUID4();
+                        }
+                        function getUUID4() {
+                            return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
+                                (c ^ (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))).toString(16),
+                            );
+                        }
+                        function joinRoom() {
+                            const roomName = filterXSS(document.getElementById('roomName').value);
+                            if (roomName) {
+                                window.location.href = '/join/' + roomName;
+                                window.localStorage.lastRoom = roomName;
+                            } else {
+                                alert('Room name empty!\nPlease pick a room name.');
+                            }
+                        }
+                    </script>
+                </div>
+            </div>
+        </section>
+
+        <!-- <script defer src="../js/landing.js"></script> -->
+        <script defer src="../js/newRoom.js"></script>
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+        <script>
+            function authconfig() {
+                if (window.localStorage.auth) {
+                    const elements = document.getElementsByClassName('mb-24');
+                    document.getElementById('auth-required').style.display = 'none';
+                    elements[0].style.display = 'inline';
+                    elements[1].style.display = 'inline';
+                    elements[2].style.display = 'inline';
+                }
+            }
+        </script>
+    </body>
+</html>

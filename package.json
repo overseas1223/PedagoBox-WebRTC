@@ -1,0 +1,55 @@
+{
+    "name": "pedagobox",
+    "version": "1.0",
+    "description": "WebRTC SFU browser-based video conferencing tool",
+    "main": "Server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node app/src/Server.js",
+        "dev": "nodemon app/src/Server.js",
+        "debug": "DEBUG='mediasoup*' node app/src/Server.js",
+        "compile": "npx browserify public/sfu/MediasoupClientCompile.js -o public/sfu/MediasoupClient.js",
+        "lint": "npx prettier --write ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/COCO-DEV03033/realtime-video-conf"
+    },
+    "keywords": [
+        "webrtc",
+        "socket.io",
+        "sfu",
+        "nodejs",
+        "video"
+    ],
+    "author": "Kateryna",
+    "license": "AGPL-3.0",
+    "dependencies": {
+        "@sentry/integrations": "7.68.0",
+        "@sentry/node": "7.68.0",
+        "axios": "^1.5.0",
+        "body-parser": "1.20.2",
+        "colors": "1.4.0",
+        "compression": "1.7.4",
+        "cors": "2.8.5",
+        "crypto-js": "4.1.1",
+        "express": "4.18.2",
+        "formidable": "^3.5.1",
+        "httpolyglot": "0.1.2",
+        "mediasoup": "3.12.12",
+        "mediasoup-client": "3.6.100",
+        "multer": "^1.4.5-lts.1",
+        "ngrok": "^4.3.3",
+        "openai": "^4.5.0",
+        "qs": "6.11.2",
+        "socket.io": "4.7.2",
+        "swagger-ui-express": "5.0.0",
+        "uuid": "9.0.0",
+        "xss": "^1.0.14",
+        "yamljs": "0.3.0"
+    },
+    "devDependencies": {
+        "node-fetch": "^3.3.2",
+        "prettier": "3.0.3"
+    }
+}
